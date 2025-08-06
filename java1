@@ -1,0 +1,43 @@
+import java.util.*;
+//a23b1c5d2b1----->a5b2c5d2
+public class java1{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        Map<Character,Integer>M=new HashMap<>();
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)>=97 && s.charAt(i)<=122){
+                if(!M.containsKey(s.charAt(i))){
+                    M.put(s.charAt(i),0);
+                }
+            }
+        }
+        System.out.println(M);
+        int c=0;
+        List<Integer>L=new ArrayList<>();
+        for(int i=0;i<s.length();i++){
+            c=0;
+            if(s.charAt(i)>=97 && s.charAt(i)<=122){
+                char C=s.charAt(i);
+                int j=i+1;
+                while(j<s.length()){
+                    if(s.charAt(j)>=48 && s.charAt(j)<=57){
+                        c=c+(s.charAt(j)-'0');
+                        j++;
+                    }
+                    else{
+                        break;
+                    }
+                }
+                M.put(s.charAt(i),M.get(s.charAt(i))+c);  
+            }
+        }
+        System.out.println(M);
+        StringBuilder S=new StringBuilder();
+        for(char C:M.keySet()){
+            S.append(C);
+            S.append(M.get(C));
+        }
+        System.out.println(S.toString());
+    }
+}
