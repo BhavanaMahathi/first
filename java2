@@ -10,9 +10,6 @@ public class java2{
             if((s.charAt(i)-'0')%2==0){
                 e=e+(s.charAt(i)-'0');
             }
-            else{
-                o=o+(s.charAt(i)-'0');
-            }
         }
         if(e>o){
             System.out.println(e);
